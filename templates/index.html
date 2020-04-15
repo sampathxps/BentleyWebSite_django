@@ -1,0 +1,437 @@
+{% load static %}
+{% static "images" as baseUrl %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Bentley CAE Research Unit</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicons -->
+  <link href="{% static 'img/favicon.png' %}" rel="icon">
+  <link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/venobox/1.8.6/venobox.css" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+  <!-- =======================================================
+    This website is developed for Bentley CAE project @ SLIIT
+    Author: Sampath Liyanarachchi
+    Date : 10/04/2020
+  ======================================================= -->
+</head>
+
+<body>
+
+  <!--==========================
+    Header
+  ============================-->
+  <header id="header">
+    <div class="container">
+
+      <div id="logo" class="pull-left">
+        <!-- Uncomment below if you prefer to use a text logo -->
+        <!-- <h1><a href="#main">C<span>o</span>nf</a></h1>-->
+        <a href="#intro" class="scrollto"><img src="{% static 'img/logo.png' %}" alt="" title="" height="50" width="200"></a>
+      </div>
+
+      <nav id="nav-menu-container">
+        <ul id="nav-menu" class="nav-menu">
+          <li class="menu-active"><a href="#intro">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#softwares">Softwares</a></li>
+          <li><a href="#clients">Clients</a></li>
+          <li class="contact-us"><a href="#contact">Contact Us</a></li>
+        </ul>
+      </nav><!-- #nav-menu-container -->
+    </div>
+  </header><!-- #header -->
+
+  <!--==========================
+    Intro Section
+  ============================-->
+  <section id="intro">
+    <div class="intro-container wow fadeIn">
+      <h1 class="mb-4 pb-0">We Provide<br>Inovative <span>Engineering</span> Solutions<br>For Your Problems</h1>
+      <p class="mb-4 pb-0">Using FEA, MBD and other various state-of-the-art analysis methods</p>
+      <a href="https://www.youtube.com/watch?v=G2GIova6Aqk" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>
+      <a href="#about" class="about-btn scrollto">About Our Research Unit</a>
+    </div>
+  </section>
+
+  <main id="main">
+
+    <!--==========================
+      About Section
+    ============================-->
+    <section id="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <h2>About The Research Unit</h2>
+            <p>Bentley CAE Research Unit was established in Faculty of Engineering of Sri Lanka Institute of Information Technology (SLIIT)  with a main focus of serving to the needs of local and international industries.          
+          </div>
+          <div class="col-lg-3">
+            <h3>Started</h3>
+            <p>In 2015,<br>with the main focus to provide analysis support for Bentley Motors UK</p>
+          </div>
+          <div class="col-lg-3">
+            <h3>Projects & Funding</h3>
+            <p>Completed over 20 projects for various local industries and have granted 40Mn+ in reseach fundings.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--==========================
+      Projects Section
+    ============================-->
+    <section id="projects" class="wow fadeInUp">
+      <div class="container">
+        <div class="section-header">
+          <h2>Projects</h2>
+          <p>Here are some of our notable projects</p>
+        </div>
+
+        <div class="row">
+
+          {% for proj in projs %}
+
+          <div class="col-6 col-sm-4 col-md-4 col-lg-4">
+            <div class="project">
+              <img src="{{proj.proj_cover_img.url}}" alt="Project 1" class="img-fluid">
+              <div class="details">
+                <h3><a class="resizeText" href="project/{{proj.pk}}">{{proj.proj_name}}</a></h3>
+              </div>
+            </div>
+          </div>
+
+          {% endfor %}
+
+          
+        </div>
+      </div>
+
+    </section>
+
+    <!--==========================
+      Services Section
+    ============================-->
+    <section id="services" class="section-with-bg wow fadeInUp">
+
+      <div class="container">
+
+        <div class="section-header">
+          <h2>Services</h2>
+          <p>We provide variety of industrial services</p>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-lg-9">
+              <ul id="services-list">
+
+                <li>
+                  <a data-toggle="collapse" class="collapsed" href="#services1">Computer Aided Design (CAD)<i class="fa fa-minus-circle"></i></a>
+                  <div id="services1" class="collapse" data-parent="#services-list">
+                    <p class="m-0 text-justify">
+                      We can create CAD drawing for new and existing equipments using Solidworks, Catia, AutoCAD or Inventor. 
+                      <br><br>These CAD model can be used for any further analysis such as FEA and mode shape analysis. Futhermore, we also provide consulations and analysis on your designs. 
+                      <br><br>Sample CAD design works done by the reseach unit.
+
+                      <div class="flexboxSerImg">
+                          <a id="firstlink" class="pt-1 venobox vbox-item" data-gall="gall_CAD" title="CAD Model of Loadstar Hydraulic Press" href="img/services/CAD1.png"><img src="{% static 'img/services/CAD1.png' %}" width="100%" style="opacity: 0.7;"></a>
+                          <a class="pt-1 venobox vbox-item" data-gall="gall_CAD" title="CAD Model of Loadstar Hydraulic Press Pin Redesign" href="img/services/CAD2.png"><img src="{% static 'img/services/CAD2.png' %}" width="100%" style="opacity: 0.7;"></a>
+                          <a class="pt-1 venobox vbox-item" data-gall="gall_CAD" title="CAD model of Pin in a overhead crane" href="img/services/CAD3.png"><img src="{% static 'img/services/CAD3.png' %}" width="100%" style="opacity: 0.7;"></a>
+                          <a class="pt-1 venobox vbox-item" data-gall="gall_CAD" title="CAD model of the Hybrid Three-Wheeler" href="img/services/CAD3.png"><img src="{% static 'img/services/CAD4.png' %}" width="100%" style="opacity: 0.7;"></a>
+                      </div>
+
+                    </p>
+                  </div>
+                </li>
+      
+                <li>
+                  <a data-toggle="collapse" href="#services2" class="collapsed">Condition Based Maintaince (CBM)<i class="fa fa-minus-circle"></i></a>
+                  <div id="services2" class="collapse" data-parent="#services-list">
+                    <p class="text-justify">
+                      The goal of condition-based maintenance is to uncover equipment failure before it happens, so maintenance can be done exactly when needed. Thus saving both money and time.
+                      <br><br>We provide CBM services for any industrial equipment and has a vast array of sensors such as acclerometers, flow sensors, strain gauges and microphones to monitor equipment health. 
+                    </p>
+                  </div>
+                </li>
+      
+                <li>
+                  <a data-toggle="collapse" href="#services3" class="collapsed">Finite Element (FE) and Fatigue Analysis<i class="fa fa-minus-circle"></i></a>
+                  <div id="services3" class="collapse" data-parent="#services-list">
+                    <p class="m-0 text-justify">
+                      FEA is a computerized numerical method which divides the problem into discrete number of elements and approximates the solution of the total system by solving algebraic equations.
+                      <br>This method is greatly useful for identify whether part of the system would fail due to stress and make necessary changes.
+                      <br><br>Fatigue analysis is a FEA where results provide a prediction of fatigue life of a product. So fatigue analysis is highly important on as it is the most common type of mechanical failure in systems that are subjected to cyclic loadings.
+                      <br><br>Few sample FEA and Fatigue analysis are given below
+                      
+                      <div class="flexboxSerImg">
+                          <a id="firstlink" class="pt-1 venobox vbox-item" data-gall="gall_FEA" title="Bolt FEA Analysis" href="img/services/FEA1.png"><img src="{% static 'img/services/FEA1.png' %}" width="100%" style="opacity: 0.7;"></a>
+                          <a class="pt-1 venobox vbox-item" data-gall="gall_FEA" title="Fatigue Analysis of the Hydraulic Press Rods" href="img/services/FEA2.png"><img src="{% static 'img/services/FEA2.png' %}" width="100%" style="opacity: 0.7;"></a>
+                          <a class="pt-1 venobox vbox-item" data-gall="gall_FEA" title="Fatigue Analysis of the Hydraulic Press Rods" href="img/services/FEA3.png"><img src="{% static 'img/services/FEA3.png' %}" width="100%" style="opacity: 0.7;"></a>
+                      </div> 
+
+                    </p>
+                  </div>
+                </li>
+      
+                <li>
+                  <a data-toggle="collapse" href="#services4" class="collapsed">Topology Optimization<i class="fa fa-minus-circle"></i></a>
+                  <div id="services4" class="collapse" data-parent="#services-list">
+                    <p class="m-0 text-justify">
+                      Topology Optimization is a mathematical method that optimizes material layout within a given design space, for a given set of loads, boundary conditions and constraints with the goal of maximizing the performance of the system.  
+                      <br><br>Using to Topology Optimization material and energy useage of the equipments can be drastically reduced while improving its strength and durability.
+                      <br><br> Given below is a sample Topology optimizes used for bush test-Rig structure.
+                      <div class="flexboxSerImg">
+                          <a id="firstlink" class="pt-1 venobox vbox-item" data-gall="gall_TO" title="Topology Optimization of Bush Test Rig" href="img/services/TO1.png"><img src="{% static 'img/services/TO1.png' %}" width="300" style="opacity: 0.7;"></a>
+                      </div> 
+                   
+                    </p>
+                  </div>
+                </li>
+      
+                <li>
+                  <a data-toggle="collapse" href="#services5" class="collapsed">Measurment and Model Validation<i class="fa fa-minus-circle"></i></a>
+                  <div id="services5" class="collapse" data-parent="#services-list">
+                    <p class="m-0 text-justify">
+                      We are capable in data acquiring at high accuracy and speed using variaty of sensors including acclerometers, pressure sensors, encorders, strain gauges, microphones etc.
+                      <br><br> Futhermore, we provide modal analysis for any structure and also provide specialize measuremt for the automotive industry such as suspension and emission testing.
+                      <br><br> Given bellow are hardware capabilities of the Bentley reseach unit   
+
+                      <div class="flexboxSerImg">
+                          <a id="firstlink" class="pt-1 venobox vbox-item" data-gall="gall_MEA" title="vehicle testing equipment" href="img/services/MEA1.png"><img src="{% static 'img/services/MEA1.png' %}" width="100%" style="opacity: 0.7;"></a>
+                          <a class="pt-1 venobox vbox-item" data-gall="gall_MEA" title="Data acquisition systems" href="img/services/MEA2.png"><img src="{% static 'img/services/MEA2.png' %}" width="100%" style="opacity: 0.7;"></a>
+                          <a class="pt-1 venobox vbox-item" data-gall="gall_MEA" title="Sensors" href="img/services/MEA3.png"><img src="{% static 'img/services/MEA3.png' %}" width="100%" style="opacity: 0.7;"></a>
+                          <a class="pt-1 venobox vbox-item" data-gall="gall_MEA" title="Sensors" href="img/services/MEA4.png"><img src="{% static 'img/services/MEA4.png' %}" width="100%" style="opacity: 0.7;"></a>
+                      </div> 
+
+                    </p>
+                  </div>
+                </li>
+      
+                <li>
+                  <a data-toggle="collapse" href="#services6" class="collapsed">Kinematic and Dynamic Analysis<i class="fa fa-minus-circle"></i></a>
+                  <div id="services6" class="collapse" data-parent="#services-list">
+                    <p class="m-0 text-justify">
+                      Kinematic and dynamic analysis is instrumental when designing vehicles and to tune all subsystems.
+                      <br><br>Using MSC Adams Car, we can preform various type of simulations such as, straight-line acceleration & deceleration, lane change, constant radius cornering, and cornering on a inclined plane. 
+                    
+                      <div class="flexboxSerImg">
+                          <a id="firstlink" class="pt-1 venobox vbox-item" data-gall="gall_KIN" title="Camber angle variation analysis" href="img/services/KIN1.png"><img src="{% static 'img/services/KIN1.png' %}" width="100%" style="opacity: 0.8;"></a>
+                          <a class="pt-1 venobox vbox-item" data-gall="gall_KIN" title="Analyzing charateristics between solid axle & double wishbone" href="img/services/KIN2.png"><img src="{% static 'img/services/KIN2.png' %}" width="100%" style="opacity: 0.8;"></a>
+                          <a class="pt-1 venobox vbox-item" data-gall="gall_KIN" title="Analyzing charateristics between solid axle & double wishbone" href="img/services/KIN3.png"><img src="{% static 'img/services/KIN3.png' %}" width="100%" style="opacity: 0.8;"></a>
+                      </div> 
+
+                    </p>
+                  </div>
+                </li>
+              </ul>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+
+    <!--==========================
+      Software Section
+    ============================-->
+    <section id="softwares" class="wow fadeInUp">
+
+      <div class="container">
+        <div class="section-header">
+          <h2>Softwares</h2>
+          <p>Following softwares are frequently used for analysis</p>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-6 col-sm-6 col-md-2 col-lg-2">
+            <div class="thumbnail">
+                <img src="{% static 'img/softwares/MSC.png' %}" alt="Lights" style="width:70%; height: 70%;">
+            </div>
+          </div>
+          
+          <div class="col-6 col-sm-6 col-md-2 col-lg-2">
+            <div class="thumbnail">
+                <img src="{% static 'img/softwares/HyperWorks.png' %}" alt="Lights" style="width:70%; height: 70%;">
+            </div>
+          </div>
+
+          <div class="col-6 col-sm-6 col-md-2 col-lg-2">
+            <div class="thumbnail">
+                <img src="{% static 'img/softwares/MatLab.png' %}" alt="Lights" style="width:70%; height: 70%;">
+            </div>
+          </div>
+
+          <div class="col-6 col-sm-6 col-md-2 col-lg-2">
+            <div class="thumbnail">
+                <img src="{% static 'img/softwares/NI.png' %}" alt="Lights" style="width:75%; height: 75%;">
+            </div>
+          </div>
+
+          <div class="col-6 col-sm-6 col-md-2 col-lg-2">
+            <div class="thumbnail">
+                <img src="{% static 'img/softwares/SolidWorks.png' %}" alt="Lights" style="width:80%; height: 80%;">
+            </div>
+          </div>
+
+
+          <div class="col-6 col-sm-6 col-md-2 col-lg-2">
+            <div class="thumbnail">
+                <img src="{% static 'img/softwares/AutoCAD.png' %}" alt="Lights" class="center" style="width:80%; height: 80%;">
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    
+    </section>
+
+    <!--==========================
+      Sponsors Section
+    ============================-->
+    <section id="clients" class="section-with-bg wow fadeInUp">
+
+      <div class="container">
+        <div class="section-header">
+          <h2>Clients</h2>
+          <p>Our prestigious local clients</p>
+        </div>
+
+        <div class="row no-gutters clients-wrap clearfix">
+        
+          <div class="col-6 col-lg-3">
+            <div class="supporter-logo">
+              <img src="{% static 'img/clients/Camso.png' %}" class="img-fluid" alt="">
+            </div>
+          </div>
+        
+          <div class="col-6 col-lg-3">
+            <div class="supporter-logo">
+              <img src="{% static 'img/clients/Ansell.png' %}" class="img-fluid" alt="">
+            </div>
+          </div>
+          
+          <div class="col-6 col-lg-3">
+            <div class="supporter-logo">
+              <img src="{% static 'img/clients/LTL.png' %}" class="img-fluid" alt="">
+            </div>
+          </div>
+          
+          <div class="col-6 col-lg-3">
+            <div class="supporter-logo">
+              <img src="{% static 'img/clients/SouthernSpars.png' %}" class="img-fluid" alt="">
+            </div>
+          </div>
+        
+        </div>
+
+      </div>
+
+    </section>
+
+    <!--==========================
+      Contact Section
+    ============================-->
+    <section id="contact" class="section-bg wow fadeInUp">
+
+      <div class="container">
+
+        <div class="section-header">
+          <h2>Contact Us</h2>
+          <p>We would love to hear from you.</p>
+        </div>
+
+        <div class="row contact-info">
+
+          <div class="col-md-4">
+            <div class="contact-address pt-0">
+              <i class="ion-ios-location-outline"></i>
+              <h3>Address</h3>
+              <address>SLIIT Malabe Campus,<br>New Kandy Road,<br>Malabe 10115</address>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="contact-phone pt-0">
+              <i class="ion-ios-telephone-outline"></i>
+              <h3>Phone Number</h3>
+              <p><a href="tel:+94 11 754 4354">(011) 754 4354</a></p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="contact-email pt-0">
+              <i class="ion-ios-email-outline"></i>
+              <h3>Email</h3>
+              <p><a href="mailto:malika.p@sliit.lk">malika.p@sliit.lk</a></p>
+            </div>
+          </div>
+
+          <div class="col-md-12" style="height: 300px;">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.798511757892!2d79.97075044955285!3d6.914677494979322!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae256db1a6771c5%3A0x2c63e344ab9a7536!2sSri%20Lanka%20Institute%20of%20Information%20Technology!5e0!3m2!1sen!2slk!4v1586166152748!5m2!1sen!2slk" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+          </div>
+
+        </div>
+      </div>    
+    </section><!-- #contact -->
+
+  </main>
+
+
+  <!--==========================
+    Footer
+  ============================-->
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright Bentley CAE Research Unit. All Rights Reserved
+      </div>
+      <div class="credits">
+        Designed by <a href="https://www.mks.lk/">MKS</a>
+      </div>
+    </div>
+  </footer><!-- #footer -->
+
+  <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+  
+
+
+  <!-- JavaScript Libraries -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.1.0/jquery-migrate.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.hoverintent/1.10.1/jquery.hoverIntent.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/superfish/1.7.10/js/superfish.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/venobox/1.8.6/venobox.min.js"></script>
+
+  <!-- Template Main Javascript File -->
+  <script src="{% static 'js/main.js' %}"></script>
+  <script src="{% static 'js/MenuScrollActive.js' %}"></script>
+</body>
+
+</html>

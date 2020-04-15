@@ -1,0 +1,167 @@
+{% load static %}
+{% static "images" as baseUrl %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Bentley CAE Research Unit</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicons -->
+  <link href="{% static 'img/favicon.png' %}" rel="icon">
+  <link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/venobox/1.8.6/venobox.css" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+  <!-- =======================================================
+    This is project-page which is part of the website developed for Bentley CAE
+    Author: Sampath Liyanarachchi
+    Date : 10/04/2020
+  ======================================================= -->
+</head>
+
+<body>
+
+  <!--==========================
+    Header
+  ============================-->
+  <header id="header" class="header-fixed">
+    <div class="container">
+
+      <div id="logo" class="pull-left">
+        <!-- Uncomment below if you prefer to use a text logo -->
+        <!-- <h1><a href="#main">C<span>o</span>nf</a></h1>-->
+        <a href="{% url 'index' %}" class="scrollto"><img src="{% static 'img/logo.png' %}" alt="" title="" height="50" width="200"></a>
+      </div>
+
+      <ul class="nav-menu pull-right">
+        <li class="menu-active"><a href="{% url 'index' %}">Back to projects</a></li>
+      </ul>
+
+    </div>
+  </header><!-- #header -->
+
+
+  <main id="main" class="main-page">
+
+    <!--==========================
+      project Details Section
+    ============================-->
+    <section id="projects-details" class="wow fadeIn">
+      <div class="container">
+
+        {% for proj in projs %}
+
+        <div class="section-header p-1">
+          <h2>{{proj.proj_fullname}}</h2>       
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+
+            <div class="slideshow-container">
+
+              {% if proj.projPage_Img1|length >= 1 %}
+              <div class="mySlides fadeCarousel">
+                <img src="{{proj.projPage_Img1.url}}" style="width:100%">
+              </div>
+              {% endif %}
+
+              {% if proj.projPage_Img2|length >= 1 %}
+              <div class="mySlides fadeCarousel">
+                <img src="{{proj.projPage_Img2.url}}" style="width:100%">
+              </div>
+              {% endif %}
+
+              {% if proj.projPage_Img3|length >= 1 %}
+              <div class="mySlides fadeCarousel">
+                <img src="{{proj.projPage_Img3.url}}" style="width:100%">
+              </div>
+              {% endif %}
+
+              {% if proj.projPage_Img4|length >= 1 %}
+              <div class="mySlides fadeCarousel">
+                <img src="{{proj.projPage_Img4.url}}" style="width:100%">
+              </div>
+              {% endif %}
+
+              {% if proj.projPage_Img5|length >= 1 %}
+              <div class="mySlides fadeCarousel">
+                <img src="{{proj.projPage_Img5.url}}" style="width:100%">
+              </div>
+              {% endif %}          
+                                      
+              <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+              <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            
+            </div> 
+                                
+          </div>
+
+          <div class="col-md-6 center text-justify">
+
+            {% autoescape off %}
+              {{proj.proj_description}}
+            {% endautoescape %}
+
+          </div>
+          
+        </div>
+
+        {% endfor %}
+
+      </div>
+
+    </section>
+
+   
+  </main>
+
+
+  <!--==========================
+    Footer
+  ============================-->
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright Bentley CAE Research Unit. All Rights Reserved
+      </div>
+      <div class="credits">
+        Designed by <a href="https://www.mks.lk/">MKS</a>
+      </div>
+    </div>
+  </footer><!-- #footer -->
+
+  <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+  <!-- JavaScript Libraries -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.1.0/jquery-migrate.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.hoverintent/1.10.1/jquery.hoverIntent.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/superfish/1.7.10/js/superfish.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/venobox/1.8.6/venobox.min.js"></script>
+
+  <!-- Template Main Javascript File -->
+  <script src="{% static 'js/main.js' %}"></script>
+  <script src="{% static 'js/carousel.js' %}"></script>
+</body>
+
+</html>
